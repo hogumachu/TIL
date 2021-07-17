@@ -29,7 +29,6 @@ class AutolayoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         draw()
-        
         profileImageView.layer.cornerRadius = 20
     }
     
@@ -142,7 +141,8 @@ class AutolayoutViewController: UIViewController {
             
             horizontalStackView.centerXAnchor.constraint(equalTo: horizontalStackView.superview!.centerXAnchor),
             horizontalStackView.centerYAnchor.constraint(equalTo: horizontalStackView.superview!.centerYAnchor),
-            horizontalStackView.heightAnchor.constraint(equalTo: horizontalStackView.superview!.heightAnchor, multiplier: 1 / 3),
+//            horizontalStackView.heightAnchor.constraint(equalTo: horizontalStackView.superview!.heightAnchor, multiplier: 2 / 3),
+//            heightAnchor는 changehorizontalStackViewHeight() 에서 대체
             horizontalStackView.widthAnchor.constraint(equalTo: horizontalStackView.superview!.widthAnchor, multiplier: 4 / 5),
             
             chatView.topAnchor.constraint(equalTo: chatView.superview!.topAnchor),
@@ -163,18 +163,17 @@ class AutolayoutViewController: UIViewController {
             chatImageView.topAnchor.constraint(equalTo: chatImageView.superview!.topAnchor),
             chatImageView.leadingAnchor.constraint(equalTo: chatImageView.superview!.leadingAnchor),
             chatImageView.trailingAnchor.constraint(equalTo: chatImageView.superview!.trailingAnchor),
-//            chatImageView.heightAnchor.constraint(equalTo: chatImageView.superview!.heightAnchor, multiplier: 2 / 3),
-            chatImageView.bottomAnchor.constraint(equalTo: chatLabel.layoutMarginsGuide.topAnchor, constant: -10),
+            chatImageView.bottomAnchor.constraint(lessThanOrEqualTo: chatLabel.topAnchor, constant: -5),
             
             chatLabel.leadingAnchor.constraint(equalTo: chatLabel.superview!.leadingAnchor),
             chatLabel.trailingAnchor.constraint(equalTo: chatLabel.superview!.trailingAnchor),
             chatLabel.bottomAnchor.constraint(equalTo: chatLabel.superview!.bottomAnchor),
-//            chatLabel.heightAnchor.constraint(equalTo: chatLabel.superview!.heightAnchor, multiplier: 1 / 3),
+            chatLabel.heightAnchor.constraint(equalTo: chatLabel.superview!.heightAnchor, multiplier: 1 / 3),
             
             editImageView.topAnchor.constraint(equalTo: editImageView.superview!.topAnchor),
             editImageView.leadingAnchor.constraint(equalTo: editImageView.superview!.leadingAnchor),
             editImageView.trailingAnchor.constraint(equalTo: editImageView.superview!.trailingAnchor),
-            editImageView.heightAnchor.constraint(equalTo: editImageView.superview!.heightAnchor, multiplier: 2 / 3),
+            editImageView.bottomAnchor.constraint(lessThanOrEqualTo: editLabel.topAnchor, constant: -5),
             
             editLabel.leadingAnchor.constraint(equalTo: editLabel.superview!.leadingAnchor),
             editLabel.trailingAnchor.constraint(equalTo: editLabel.superview!.trailingAnchor),
@@ -184,15 +183,15 @@ class AutolayoutViewController: UIViewController {
             storyImageView.topAnchor.constraint(equalTo: storyImageView.superview!.topAnchor),
             storyImageView.leadingAnchor.constraint(equalTo: storyImageView.superview!.leadingAnchor),
             storyImageView.trailingAnchor.constraint(equalTo: storyImageView.superview!.trailingAnchor),
-            storyImageView.heightAnchor.constraint(equalTo: storyImageView.superview!.heightAnchor, multiplier: 2 / 3),
+            storyImageView.bottomAnchor.constraint(lessThanOrEqualTo: storyLabel.topAnchor, constant: -5),
             
             storyLabel.leadingAnchor.constraint(equalTo: storyLabel.superview!.leadingAnchor),
             storyLabel.trailingAnchor.constraint(equalTo: storyLabel.superview!.trailingAnchor),
             storyLabel.bottomAnchor.constraint(equalTo: storyLabel.superview!.bottomAnchor),
             storyLabel.heightAnchor.constraint(equalTo: storyLabel.superview!.heightAnchor, multiplier: 1 / 3),
-            
-            
         ])
+        
+        changehorizontalStackViewHeight()
         
         if #available(iOS 11.0, *) {
             topView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -200,7 +199,10 @@ class AutolayoutViewController: UIViewController {
             topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         }
         
+        
     }
+    
+    
 }
 
 
@@ -227,5 +229,19 @@ extension UIView {
     func addSubViewAndReturnSelf(UIView: UIView) -> UIView {
         self.addSubview(UIView)
         return self
+    }
+}
+
+extension AutolayoutViewController {
+//    Device가 가로인지 세로인지 판단하여 horizontalStackView의 height를 변경함
+    func changehorizontalStackViewHeight() {
+        if UIDevice.current.orientation.isLandscape {
+            horizontalStackView.heightAnchor.constraint(equalTo: horizontalStackView.superview!.heightAnchor, multiplier: 2 / 3).isActive = true
+        } else {
+            horizontalStackView.heightAnchor.constraint(equalTo: horizontalStackView.superview!.heightAnchor, multiplier: 1 / 3).isActive = true
+        }
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        changehorizontalStackViewHeight()
     }
 }
