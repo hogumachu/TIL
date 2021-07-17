@@ -32,6 +32,10 @@ class AutolayoutViewController: UIViewController {
         profileImageView.layer.cornerRadius = 20
     }
     
+    @objc func cancelButtonAction(sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     func draw() {
         view.addSubViews(UIViews: [
@@ -67,6 +71,7 @@ class AutolayoutViewController: UIViewController {
         bottomView.layer.borderColor = UIColor.white.cgColor
         
         closeButton.setImage(UIImage(named: "close"), for: .normal)
+        closeButton.addTarget(self, action: #selector(cancelButtonAction), for: .touchUpInside)
         
         profileImageView.image = UIImage(named: "profile")
         profileImageView.backgroundColor = .systemPink

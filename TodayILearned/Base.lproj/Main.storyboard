@@ -15,21 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f90-rc-3rO">
-                                <rect key="frame" x="139" y="433" width="136" height="30"/>
-                                <state key="normal" title="Click To AutoLayout"/>
-                                <connections>
-                                    <segue destination="G8a-QY-1bS" kind="modal" modalPresentationStyle="fullScreen" id="0S1-J6-29R"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="f90-rc-3rO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RW1-pr-6Yh"/>
-                            <constraint firstItem="f90-rc-3rO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="avB-mm-FER"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
