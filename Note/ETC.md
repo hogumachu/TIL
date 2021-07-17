@@ -27,3 +27,10 @@ override func viewDidLoad() {
 }
 ```
 * addTarget으로 Action 추가 가능.
+
+```swift
+@objc func cancelButtonAction(sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+}
+```
+* dismiss 로 이전 VC로 돌아감.
