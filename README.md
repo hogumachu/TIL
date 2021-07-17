@@ -6,3 +6,10 @@
 |:-------:|:-----:|:---:|
 |#1|[Extension, Anchor](https://github.com/hogumachu/TIL/blob/main/Note/AutoLayout.md#1-extension-anchor)|2021.07.16|
 |#2|[Debug](https://github.com/hogumachu/TIL/blob/main/Note/AutoLayout.md#2-debug)|2021.07.17|
+
+
+
+## 깨알 공부
+|Chapter|Title|Date|
+|:-------:|:-----:|:---:|
+|#1|[화면 전환 (ViewController)](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#1-%ED%99%94%EB%A9%B4-%EC%A0%84%ED%99%98-viewcontroller)|2021.07.18|
