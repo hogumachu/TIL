@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4991A06F1F6766B2CE92ECC /* Pods_TodayILearned.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5367E6C59FE859D4882050D5 /* Pods_TodayILearned.framework */; };
 		F103068726A1CED500B6BE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103068626A1CED500B6BE64 /* AppDelegate.swift */; };
 		F103068926A1CED500B6BE64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103068826A1CED500B6BE64 /* SceneDelegate.swift */; };
 		F103068B26A1CED500B6BE64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103068A26A1CED500B6BE64 /* ViewController.swift */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5367E6C59FE859D4882050D5 /* Pods_TodayILearned.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayILearned.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5860C2D635E4DF4F44CBC236 /* Pods-TodayILearned.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayILearned.release.xcconfig"; path = "Target Support Files/Pods-TodayILearned/Pods-TodayILearned.release.xcconfig"; sourceTree = "<group>"; };
+		7B9700E43A08B4B5BDC2DEF4 /* Pods-TodayILearned.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayILearned.debug.xcconfig"; path = "Target Support Files/Pods-TodayILearned/Pods-TodayILearned.debug.xcconfig"; sourceTree = "<group>"; };
 		F103068326A1CED500B6BE64 /* TodayILearned.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayILearned.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F103068626A1CED500B6BE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F103068826A1CED500B6BE64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +30,7 @@
 		F103069226A1CED800B6BE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F103069426A1CED800B6BE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F103069A26A1CF4100B6BE64 /* AutolayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutolayoutViewController.swift; sourceTree = "<group>"; };
+		F103069E26A4939700B6BE64 /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +38,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4991A06F1F6766B2CE92ECC /* Pods_TodayILearned.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9287DEBB860EBED11F49FE22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B9700E43A08B4B5BDC2DEF4 /* Pods-TodayILearned.debug.xcconfig */,
+				5860C2D635E4DF4F44CBC236 /* Pods-TodayILearned.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D9B9C51CAAEA1FF215453B02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5367E6C59FE859D4882050D5 /* Pods_TodayILearned.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F103067A26A1CED500B6BE64 = {
 			isa = PBXGroup;
 			children = (
 				F103068526A1CED500B6BE64 /* TodayILearned */,
 				F103068426A1CED500B6BE64 /* Products */,
+				9287DEBB860EBED11F49FE22 /* Pods */,
+				D9B9C51CAAEA1FF215453B02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +88,7 @@
 				F103068A26A1CED500B6BE64 /* ViewController.swift */,
 				F103069C26A2E6A800B6BE64 /* Autolayout */,
 				F103068C26A1CED500B6BE64 /* Main.storyboard */,
+				F103069D26A4936B00B6BE64 /* RxSwift */,
 				F103068F26A1CED800B6BE64 /* Assets.xcassets */,
 				F103069126A1CED800B6BE64 /* LaunchScreen.storyboard */,
 				F103069426A1CED800B6BE64 /* Info.plist */,
@@ -78,6 +104,14 @@
 			path = Autolayout;
 			sourceTree = "<group>";
 		};
+		F103069D26A4936B00B6BE64 /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				F103069E26A4939700B6BE64 /* RxSwift.playground */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F103069726A1CED800B6BE64 /* Build configuration list for PBXNativeTarget "TodayILearned" */;
 			buildPhases = (
+				FCA4CEB3B1BDDA402C6CB2F6 /* [CP] Check Pods Manifest.lock */,
 				F103067F26A1CED500B6BE64 /* Sources */,
 				F103068026A1CED500B6BE64 /* Frameworks */,
 				F103068126A1CED500B6BE64 /* Resources */,
+				0C42E031F7B15386D1E8FA92 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +178,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C42E031F7B15386D1E8FA92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodayILearned/Pods-TodayILearned-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodayILearned/Pods-TodayILearned-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TodayILearned/Pods-TodayILearned-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCA4CEB3B1BDDA402C6CB2F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TodayILearned-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F103067F26A1CED500B6BE64 /* Sources */ = {
@@ -295,6 +373,7 @@
 		};
 		F103069826A1CED800B6BE64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B9700E43A08B4B5BDC2DEF4 /* Pods-TodayILearned.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +393,7 @@
 		};
 		F103069926A1CED800B6BE64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5860C2D635E4DF4F44CBC236 /* Pods-TodayILearned.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
