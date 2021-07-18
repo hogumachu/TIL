@@ -29,15 +29,33 @@ class AutolayoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         draw()
-        profileImageView.layer.cornerRadius = 20
     }
     
     @objc func cancelButtonAction(sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     func draw() {
+        addViews()
+        translatesAutoresizing()
+        setViews()
+        setConstraints()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func addViews() {
         view.addSubViews(UIViews: [
             backgroundImageView,
             bottomView.addSubViewAndReturnSelf(UIView:
@@ -62,9 +80,13 @@ class AutolayoutViewController: UIViewController {
                 statusLabel,
             ]),
         ])
-        
+    }
+    
+    func translatesAutoresizing() {
         translatesAutoresizingMaskIntoConstraints(UIViews: [backgroundImageView, bottomView, topView, chatImageView, closeButton, profileImageView, nameLabel, statusLabel, horizontalStackView, chatView, editView, storyView, chatLabel, editImageView, editLabel, storyImageView, storyLabel])
-        
+    }
+    
+    func setViews() {
         backgroundImageView.backgroundColor = .systemGray
         
         bottomView.layer.borderWidth = 1
@@ -76,6 +98,7 @@ class AutolayoutViewController: UIViewController {
         profileImageView.image = UIImage(named: "profile")
         profileImageView.backgroundColor = .systemPink
         profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = 20
         
         nameLabel.text = "Hogumachu"
         nameLabel.textColor = .white
@@ -112,7 +135,9 @@ class AutolayoutViewController: UIViewController {
         storyLabel.text = "인스타그램"
         storyLabel.textColor = .white
         storyLabel.textAlignment = .center
-        
+    }
+    
+    func setConstraints() {
         NSLayoutConstraint.activate([
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -203,8 +228,6 @@ class AutolayoutViewController: UIViewController {
         } else {
             topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         }
-        
-        
     }
     
     
