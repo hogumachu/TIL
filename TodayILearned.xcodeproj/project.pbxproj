@@ -30,7 +30,8 @@
 		F103069226A1CED800B6BE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F103069426A1CED800B6BE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F103069A26A1CF4100B6BE64 /* AutolayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutolayoutViewController.swift; sourceTree = "<group>"; };
-		F103069E26A4939700B6BE64 /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F103069E26A4939700B6BE64 /* RxSwift#1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#1.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F103069F26A5523400B6BE64 /* RxSwift#2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#2.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +108,8 @@
 		F103069D26A4936B00B6BE64 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				F103069E26A4939700B6BE64 /* RxSwift.playground */,
+				F103069E26A4939700B6BE64 /* RxSwift#1.playground */,
+				F103069F26A5523400B6BE64 /* RxSwift#2.playground */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
