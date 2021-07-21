@@ -23,13 +23,21 @@ class AutolayoutViewController: UIViewController {
     let chatLabel = UILabel()
     let editImageView = UIImageView()
     let editLabel = UILabel()
-    let storyImageView = UIImageView()
-    let storyLabel = UILabel()
+    
+    let chatbotImageView = UIImageView()
+    let chatbotLabel = UILabel()
+    let chatbotButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         draw()
     }
+    @objc func chatbotButton(sender: UIButton) {
+        let chatbotVC = ChatBotViewController()
+        chatbotVC.modalPresentationStyle = .fullScreen
+        self.present(chatbotVC, animated: true, completion: nil)
+    }
+    
     
     @objc func cancelButtonAction(sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -41,19 +49,6 @@ class AutolayoutViewController: UIViewController {
         setViews()
         setConstraints()
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     func addViews() {
         view.addSubViews(UIViews: [
@@ -69,8 +64,9 @@ class AutolayoutViewController: UIViewController {
                                                         editLabel
                                                     ]),
                                                     storyView.addSubViewsAndReturnSelf(UIViews: [
-                                                        storyImageView,
-                                                        storyLabel
+                                                        chatbotImageView,
+                                                        chatbotLabel,
+                                                        chatbotButton
                                                     ])
                                                 ])),
             topView.addSubViewsAndReturnSelf(UIViews: [
@@ -83,7 +79,7 @@ class AutolayoutViewController: UIViewController {
     }
     
     func translatesAutoresizing() {
-        translatesAutoresizingMaskIntoConstraints(UIViews: [backgroundImageView, bottomView, topView, chatImageView, closeButton, profileImageView, nameLabel, statusLabel, horizontalStackView, chatView, editView, storyView, chatLabel, editImageView, editLabel, storyImageView, storyLabel])
+        translatesAutoresizingMaskIntoConstraints(UIViews: [backgroundImageView, bottomView, topView, chatImageView, closeButton, profileImageView, nameLabel, statusLabel, horizontalStackView, chatView, editView, storyView, chatLabel, editImageView, editLabel, chatbotImageView, chatbotLabel, chatbotButton])
     }
     
     func setViews() {
@@ -129,12 +125,15 @@ class AutolayoutViewController: UIViewController {
         editLabel.textColor = .white
         editLabel.textAlignment = .center
         
-        storyImageView.image = UIImage(named: "insta")
-        storyImageView.contentMode = .scaleAspectFit
+        chatbotImageView.image = UIImage(named: "insta")
+        chatbotImageView.contentMode = .scaleAspectFit
         
-        storyLabel.text = "인스타그램"
-        storyLabel.textColor = .white
-        storyLabel.textAlignment = .center
+        chatbotLabel.text = "챗봇"
+        chatbotLabel.textColor = .white
+        chatbotLabel.textAlignment = .center
+        
+        chatbotButton.setTitle("", for: .normal)
+        chatbotButton.addTarget(self, action: #selector(chatbotButton(sender:)), for: .touchUpInside)
     }
     
     func setConstraints() {
@@ -210,15 +209,20 @@ class AutolayoutViewController: UIViewController {
             editLabel.bottomAnchor.constraint(equalTo: editLabel.superview!.bottomAnchor),
             editLabel.heightAnchor.constraint(equalTo: editLabel.superview!.heightAnchor, multiplier: 1 / 3),
             
-            storyImageView.topAnchor.constraint(equalTo: storyImageView.superview!.topAnchor),
-            storyImageView.leadingAnchor.constraint(equalTo: storyImageView.superview!.leadingAnchor),
-            storyImageView.trailingAnchor.constraint(equalTo: storyImageView.superview!.trailingAnchor),
-            storyImageView.bottomAnchor.constraint(lessThanOrEqualTo: storyLabel.topAnchor, constant: -5),
+            chatbotImageView.topAnchor.constraint(equalTo: chatbotImageView.superview!.topAnchor),
+            chatbotImageView.leadingAnchor.constraint(equalTo: chatbotImageView.superview!.leadingAnchor),
+            chatbotImageView.trailingAnchor.constraint(equalTo: chatbotImageView.superview!.trailingAnchor),
+            chatbotImageView.bottomAnchor.constraint(lessThanOrEqualTo: chatbotLabel.topAnchor, constant: -5),
             
-            storyLabel.leadingAnchor.constraint(equalTo: storyLabel.superview!.leadingAnchor),
-            storyLabel.trailingAnchor.constraint(equalTo: storyLabel.superview!.trailingAnchor),
-            storyLabel.bottomAnchor.constraint(equalTo: storyLabel.superview!.bottomAnchor),
-            storyLabel.heightAnchor.constraint(equalTo: storyLabel.superview!.heightAnchor, multiplier: 1 / 3),
+            chatbotLabel.leadingAnchor.constraint(equalTo: chatbotLabel.superview!.leadingAnchor),
+            chatbotLabel.trailingAnchor.constraint(equalTo: chatbotLabel.superview!.trailingAnchor),
+            chatbotLabel.bottomAnchor.constraint(equalTo: chatbotLabel.superview!.bottomAnchor),
+            chatbotLabel.heightAnchor.constraint(equalTo: chatbotLabel.superview!.heightAnchor, multiplier: 1 / 3),
+            
+            chatbotButton.topAnchor.constraint(equalTo: chatbotImageView.topAnchor),
+            chatbotButton.leadingAnchor.constraint(equalTo: chatbotImageView.leadingAnchor),
+            chatbotButton.trailingAnchor.constraint(equalTo: chatbotImageView.trailingAnchor),
+            chatbotButton.bottomAnchor.constraint(equalTo: chatImageView.bottomAnchor),
         ])
         
         changehorizontalStackViewHeight()
