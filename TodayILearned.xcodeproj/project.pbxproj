@@ -15,6 +15,7 @@
 		F103069026A1CED800B6BE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F103068F26A1CED800B6BE64 /* Assets.xcassets */; };
 		F103069326A1CED800B6BE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F103069126A1CED800B6BE64 /* LaunchScreen.storyboard */; };
 		F103069B26A1CF4100B6BE64 /* AutolayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103069A26A1CF4100B6BE64 /* AutolayoutViewController.swift */; };
+		F10306AA26A79D9900B6BE64 /* ChatBotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10306A926A79D9900B6BE64 /* ChatBotViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F103069E26A4939700B6BE64 /* RxSwift#1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#1.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F103069F26A5523400B6BE64 /* RxSwift#2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#2.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F10306A026A5699E00B6BE64 /* RxSwift#3.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#3.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F10306A926A79D9900B6BE64 /* ChatBotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				F103068626A1CED500B6BE64 /* AppDelegate.swift */,
 				F103068826A1CED500B6BE64 /* SceneDelegate.swift */,
 				F103068A26A1CED500B6BE64 /* ViewController.swift */,
+				F10306A926A79D9900B6BE64 /* ChatBotViewController.swift */,
 				F103069C26A2E6A800B6BE64 /* Autolayout */,
 				F103068C26A1CED500B6BE64 /* Main.storyboard */,
 				F103069D26A4936B00B6BE64 /* RxSwift */,
@@ -232,6 +235,7 @@
 			files = (
 				F103068B26A1CED500B6BE64 /* ViewController.swift in Sources */,
 				F103068726A1CED500B6BE64 /* AppDelegate.swift in Sources */,
+				F10306AA26A79D9900B6BE64 /* ChatBotViewController.swift in Sources */,
 				F103068926A1CED500B6BE64 /* SceneDelegate.swift in Sources */,
 				F103069B26A1CF4100B6BE64 /* AutolayoutViewController.swift in Sources */,
 			);
