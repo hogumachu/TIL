@@ -23,19 +23,6 @@ class ChatBotViewController: UIViewController {
         draw()
     }
     
-    func encodedData() -> Data? {
-//        TextField에 있는 text를 encoding 함.
-        let text = chatTextField.text!
-        if text == "" {
-            print("Empty Text")
-            return nil
-        }
-        let data = data(data: text)
-        
-        let encoder = JSONEncoder()
-        return try? encoder.encode(data)
-    }
-    
     @objc func sendText(sender: UIButton) {
         let urlStr = "http://127.0.0.1:8000/get_info/?data=\(chatTextField.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 //        Django Local 서버로 연결하여 Django 안에 있는 get_info 함수에 text를 줌.
@@ -47,8 +34,7 @@ class ChatBotViewController: UIViewController {
         var request = URLRequest(url: url)
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        request.httpBody = encodedData()
+        request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request) { closureData, response, error in
 //            JSON 구조 이름이 다 data 라 closureData 라고 이름을 칭했음.
@@ -56,13 +42,13 @@ class ChatBotViewController: UIViewController {
                 print("Error in Task")
                 return
             }
-            guard let reponse = response as? HTTPURLResponse else {
+            guard let response = response as? HTTPURLResponse else {
                 print("Error in Task #Response")
                 return
             }
             
-            guard (200...299).contains(reponse.statusCode) else {
-                print("Error in Task #Response + \(reponse.statusCode)")
+            guard (200...299).contains(response.statusCode) else {
+                print("Error in Task #Response + \(response.statusCode)")
                 return
             }
             
