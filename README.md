@@ -21,6 +21,8 @@
 |#1|[Observable, Observer, DisposeBag](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#1-observable-observer-disposebag)|2021.07.19|
 |#2|[Subject (Publish, Behavior, Replay, Async), Relay](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#2-subject-publish-behavior-replay-async-relay)|2021.07.19|
 |#3|[Creating Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#3-creating-observables)|2021.07.19|
+|#4|[Filtering Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#4-filtering-observables)|2021.07.22|
+
 
 
 ## 깨알 공부
