@@ -35,6 +35,7 @@
 		F103069F26A5523400B6BE64 /* RxSwift#2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#2.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F10306A026A5699E00B6BE64 /* RxSwift#3.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#3.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F10306A926A79D9900B6BE64 /* ChatBotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotViewController.swift; sourceTree = "<group>"; };
+		F1CC614626A98C020062B157 /* RxSwift#4.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#4.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +116,7 @@
 				F103069E26A4939700B6BE64 /* RxSwift#1.playground */,
 				F103069F26A5523400B6BE64 /* RxSwift#2.playground */,
 				F10306A026A5699E00B6BE64 /* RxSwift#3.playground */,
+				F1CC614626A98C020062B157 /* RxSwift#4.playground */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
