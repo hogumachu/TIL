@@ -408,14 +408,14 @@ Observable
 * take 와 함께 사용하자
 
 
-# 3. Filtering Observables
+# 4. Filtering Observables
 
 ```swift
 var disposeBag = DisposeBag()
 let numbers = [0, 1, 2, 3, 4, 5,6 ,7 ,8, 9, 10]
 ```
 
-## 3.1 Debounce
+## 4.1 Debounce
 ```swift
 let debounceObserver = Observable<Int>.create { observer in
     DispatchQueue.global().async {
@@ -446,7 +446,7 @@ debounceObserver
 * 시간 안에 Next 된 값 중에서 가장 최신 값을 방충
 
 
-##  3.2 Distinct
+##  4.2 Distinct
 ```swift
 Observable.from(numbers)
     .distinctUntilChanged()
@@ -464,7 +464,7 @@ Observable.from([1, 1, 1, 2, 2, 3, 2, 3, 3, 2, 2])
 * 1, 2, 3, 2, 3, 2 completed
 * 중복된 값 (자신 바로 앞에 있는 값) 을 제거한 항목을 방출
 
-##  3.3 ElementAt
+##  4.3 ElementAt
 ```swift
 Observable.from(numbers)
     .element(at: 3)
@@ -474,7 +474,7 @@ Observable.from(numbers)
 * 해당 index에 있는 값을 방출
 * index 값이 넘어가면 Error
 
-##  3.4 Filter
+##  4.4 Filter
 ```swift
 Observable.from(numbers)
     .filter { $0 % 2 == 0 }
@@ -487,7 +487,7 @@ Observable.from(numbers)
 * filter 의 조건에 따라 fitering 함
 
 
-##  3.5 First (Single)
+##  4.5 First (Single)
 ```swift
 Observable.from(numbers)
     .single()
@@ -514,7 +514,7 @@ Observable.from(numbers)
 * 값이 5인 것이 하나 밖에 없어서 정상적으로 진행
 * Single 은 한 개의 값만 방출되어야 함.
 
-##  3.6 IgnoreElements
+##  4.6 IgnoreElements
 ```swift
 Observable.from(numbers)
     .ignoreElements()
@@ -525,7 +525,7 @@ Observable.from(numbers)
 ```
 * completed 인지 error 인지만 알려주고 나머지 요소는 무시함.
 
-##  3.7 Sample
+##  4.7 Sample
 ```swift
 let sampleSubject = PublishSubject<Int>()
 let sampleTrigger = PublishSubject<Int>()
@@ -557,8 +557,8 @@ sampleTrigger.onCompleted()
 * 그 뒤로 Trigger에 3을 주니 Subject의 2가 방출되었음.
 * Completed 도 동일한 방식으로 진행.
 
-##  3.8 Skip, SkipUntil, SkipWhile
-### 3.8.1 Skip
+##  4.8 Skip, SkipUntil, SkipWhile
+### 4.8.1 Skip
 ```swift
 Observable.from(numbers)
     .skip(3)
@@ -582,7 +582,7 @@ Observable.from(numbers)
 * skip count가 index의 크기를 넘어가도 error 나지 않고 completed.
 * Skip 은 Count 만큼 값을 skip.
 
-### 3.8.2 SkipUntil
+### 4.8.2 SkipUntil
 ```swift
 let skipUntilSubject = PublishSubject<Int>()
 let skipUntilTrigger = PublishSubject<Int>()
@@ -605,7 +605,7 @@ numbers.forEach {
 * 트리거가 onNext 로 진행하면 그때부터 진행 (작동).
 
 
-### 3.8.3 SkipWhile
+### 4.8.3 SkipWhile
 ```swift
 Observable.from(numbers)
     .skip(while: {
@@ -635,8 +635,8 @@ Observable.from(numbers)
 * 그러나 조건이 false 이고 그 뒤에 true 가 나와도 그냥 방출함.
 
 
-##  3.9 Take, TakeLast, TakeUntil
-### 3.9.1 Take
+##  4.9 Take, TakeLast, TakeUntil
+### 4.9.1 Take
 ```swift
 Observable.from(numbers)
     .take(5)
@@ -648,7 +648,7 @@ Observable.from(numbers)
 * 0, 1, 2, 3, 4, completed
 * count 만큼 첫번째 값부터 방출함.
 
-###  3.9.2 TakeLast
+###  4.9.2 TakeLast
 ```swift
 Observable.from(numbers)
     .takeLast(4)
@@ -660,7 +660,7 @@ Observable.from(numbers)
 * 7, 8, 9, 10, completed
 * 마지막 count 만큼의 값을 가지고 있다가 onCompleted 되면 방출함
 
-###  3.9.3 TakeUntil
+###  4.9.3 TakeUntil
 ```swift
 let takeUntilSubject = PublishSubject<Int>()
 let takeUntilTrigger = PublishSubject<Int>()
