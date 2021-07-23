@@ -23,7 +23,7 @@
 |#3|[Creating Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#3-creating-observables)|2021.07.19|
 |#4|[Transforming Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#4-transforming-observables)|2021.07.23|
 |#5|[Filtering Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#5-filtering-observables)|2021.07.22|
-
+|#6|[Combining Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#6-combining-observables)|2021.07.23|
 
 
 ## 깨알 공부
