@@ -990,3 +990,115 @@ rightZip.onCompleted()
 * Zip은 Observable을 받아 방출하는 값들을 하나로 묶어서 방출함
 * combineLatest 와 다른 점은 Zip은 index 에 맞는 값들만 방출함. (중복된 방출 X)
 * 하나가 completed 되어도 값이 남아 있다면 다른 observable 에 값이 방출되면 index 에 짝이 맞다면 값이 방출된다.
+
+# 7. Error Handling Operators
+```swift
+enum RxE: Error {
+    case error
+}
+
+var disposeBag = DisposeBag()
+```
+## 7.1 Catch, CatchAndReturn
+### 7.1.1 Catch
+```swift
+let sourceSubject = PublishSubject<Int>()
+let anotherSubject = PublishSubject<Int>()
+
+sourceSubject
+    .catch { _ in anotherSubject }
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
+
+sourceSubject.onNext(1)
+// 1
+sourceSubject.onError(RxE.error)
+
+sourceSubject.onNext(2)
+
+anotherSubject.onNext(3)
+// 3
+anotherSubject.onCompleted()
+// completed
+```
+* catch 는 말 그대로 error를 catch 함.
+* error를 catch 하면 다른 Observable 을 할당함.
+
+
+
+### 7.1.2 CatchAndReturn
+```swift
+let catchAndReturn = PublishSubject<String>()
+
+catchAndReturn
+    .catchAndReturn("Error 입니다.")
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
+
+catchAndReturn.onNext("A")
+// A
+catchAndReturn.onError(RxE.error)
+// Error 입니다., completed
+```
+* catchAndReturn 은 error 를 catch 하면 Element를 return 함.
+
+## 7.2 Retry, RetryWhen
+
+### 7.2.1 Retry
+```swift
+var retryCounting = 0
+
+let retryObservable = Observable<String>.create { observer in
+    print("retryCounting:", retryCounting)
+    if retryCounting < 5 {
+        observer.onError(RxE.error)
+        retryCounting += 1
+    }
+    observer.onNext("Finish Retry")
+    observer.onCompleted()
+    
+    return Disposables.create ()
+}
+
+retryObservable
+    .retry(6)
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
+// 6번 실행되면서 종료.
+```
+* retry 는 말 그대로 횟수만큼 재시도함.
+
+
+### 7.2.2 RetryWhen
+
+```swift
+retryCounting = 0
+
+let retryWhenObservable = Observable<String>.create { observer in
+    print("retryWhenCounting:", retryCounting)
+    
+    if retryCounting < 5 {
+        observer.onError(RxE.error)
+        retryCounting += 1
+    }
+    observer.onNext("Finish retryWhen")
+    observer.onCompleted()
+    
+    return Disposables.create ()
+}
+
+let retryWhenTrigger = PublishSubject<String>()
+
+retryWhenObservable
+    .retry(when: { _ in retryWhenTrigger })
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
+
+retryWhenTrigger.onNext("A")
+retryWhenTrigger.onNext("A")
+retryWhenTrigger.onNext("A")
+retryWhenTrigger.onNext("A")
+retryWhenTrigger.onNext("A")
+// 0, 1, 2, 3, 4, 5, Finish retryWhen
+```
+* retryWhen 은 trigger 를 받아서 trigger에 Next 될 때 재시도함.
