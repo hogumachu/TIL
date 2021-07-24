@@ -38,6 +38,7 @@
 		F1CC614626A98C020062B157 /* RxSwift#4.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#4.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F1E8FAFB26A9F0ED00E14CDD /* RxSwift#5.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#5.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F1F86C9A26AAB86B0075CFB3 /* RxSwift#6.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#6.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F1F86C9B26AC0C960075CFB3 /* RxSwift#7.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#7.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +122,7 @@
 				F1CC614626A98C020062B157 /* RxSwift#4.playground */,
 				F1E8FAFB26A9F0ED00E14CDD /* RxSwift#5.playground */,
 				F1F86C9A26AAB86B0075CFB3 /* RxSwift#6.playground */,
+				F1F86C9B26AC0C960075CFB3 /* RxSwift#7.playground */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
