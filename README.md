@@ -24,6 +24,9 @@
 |#4|[Transforming Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#4-transforming-observables)|2021.07.23|
 |#5|[Filtering Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#5-filtering-observables)|2021.07.22|
 |#6|[Combining Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#6-combining-observables)|2021.07.23|
+|#7|[Error Handling Operators](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#7-error-handling-operators)|2021.07.24|
+
+
 
 
 ## 깨알 공부
