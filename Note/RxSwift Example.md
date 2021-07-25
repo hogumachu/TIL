@@ -62,3 +62,4 @@ class FriendsTableViewController: UIViewController {
 * `friendObservable` 에 `friendTableView`의 `items` 을 묶음.
 * `cell` 에 각각 `Data` 를 입력해줌.
 
+<img src = "https://user-images.githubusercontent.com/74225754/126899487-c738a7bf-06ad-436b-a7f2-5e8614d6dfdf.png" width="30%" height="30%">
