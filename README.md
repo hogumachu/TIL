@@ -15,6 +15,7 @@
 
 
 ## RxSwift
+### RxSwift Basic
 
 |Chapter|Title|Date|
 |:-------:|:-----:|:---:|
@@ -26,8 +27,10 @@
 |#6|[Combining Observables](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#6-combining-observables)|2021.07.23|
 |#7|[Error Handling Operators](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift.md#7-error-handling-operators)|2021.07.24|
 
-
-
+### RxSwift Example
+|Chapter|Title|Date|
+|:-------:|:-----:|:---:|
+|#8|[TableView (Init)](https://github.com/hogumachu/TIL/blob/main/Note/RxSwift%20Example.md#8-tableview-init)|2021.07.25|
 
 ## 깨알 공부
 |Chapter|Title|Date|
