@@ -14,8 +14,11 @@
 		F103068E26A1CED500B6BE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F103068C26A1CED500B6BE64 /* Main.storyboard */; };
 		F103069026A1CED800B6BE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F103068F26A1CED800B6BE64 /* Assets.xcassets */; };
 		F103069326A1CED800B6BE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F103069126A1CED800B6BE64 /* LaunchScreen.storyboard */; };
-		F103069B26A1CF4100B6BE64 /* AutolayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103069A26A1CF4100B6BE64 /* AutolayoutViewController.swift */; };
+		F103069B26A1CF4100B6BE64 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103069A26A1CF4100B6BE64 /* MyProfileViewController.swift */; };
 		F10306AA26A79D9900B6BE64 /* ChatBotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10306A926A79D9900B6BE64 /* ChatBotViewController.swift */; };
+		F1F86C9F26AD56210075CFB3 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F86C9E26AD56210075CFB3 /* FriendsTableViewController.swift */; };
+		F1F86CA326AD575F0075CFB3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F86CA226AD575F0075CFB3 /* Friend.swift */; };
+		F1F86CA626AD58E00075CFB3 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F86CA526AD58E00075CFB3 /* FriendsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +33,7 @@
 		F103068F26A1CED800B6BE64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F103069226A1CED800B6BE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F103069426A1CED800B6BE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F103069A26A1CF4100B6BE64 /* AutolayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutolayoutViewController.swift; sourceTree = "<group>"; };
+		F103069A26A1CF4100B6BE64 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		F103069E26A4939700B6BE64 /* RxSwift#1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#1.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F103069F26A5523400B6BE64 /* RxSwift#2.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#2.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F10306A026A5699E00B6BE64 /* RxSwift#3.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#3.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -39,6 +42,9 @@
 		F1E8FAFB26A9F0ED00E14CDD /* RxSwift#5.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#5.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F1F86C9A26AAB86B0075CFB3 /* RxSwift#6.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#6.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F1F86C9B26AC0C960075CFB3 /* RxSwift#7.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "RxSwift#7.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F1F86C9E26AD56210075CFB3 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		F1F86CA226AD575F0075CFB3 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		F1F86CA526AD58E00075CFB3 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +97,11 @@
 		F103068526A1CED500B6BE64 /* TodayILearned */ = {
 			isa = PBXGroup;
 			children = (
+				F1F86CA426AD58C90075CFB3 /* Cell */,
+				F1F86CA126AD56C00075CFB3 /* ViewController */,
+				F1F86CA026AD56580075CFB3 /* Models */,
 				F103068626A1CED500B6BE64 /* AppDelegate.swift */,
 				F103068826A1CED500B6BE64 /* SceneDelegate.swift */,
-				F103068A26A1CED500B6BE64 /* ViewController.swift */,
-				F10306A926A79D9900B6BE64 /* ChatBotViewController.swift */,
-				F103069C26A2E6A800B6BE64 /* Autolayout */,
 				F103068C26A1CED500B6BE64 /* Main.storyboard */,
 				F103069D26A4936B00B6BE64 /* RxSwift */,
 				F103068F26A1CED800B6BE64 /* Assets.xcassets */,
@@ -103,14 +109,6 @@
 				F103069426A1CED800B6BE64 /* Info.plist */,
 			);
 			path = TodayILearned;
-			sourceTree = "<group>";
-		};
-		F103069C26A2E6A800B6BE64 /* Autolayout */ = {
-			isa = PBXGroup;
-			children = (
-				F103069A26A1CF4100B6BE64 /* AutolayoutViewController.swift */,
-			);
-			path = Autolayout;
 			sourceTree = "<group>";
 		};
 		F103069D26A4936B00B6BE64 /* RxSwift */ = {
@@ -125,6 +123,33 @@
 				F1F86C9B26AC0C960075CFB3 /* RxSwift#7.playground */,
 			);
 			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		F1F86CA026AD56580075CFB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F1F86CA226AD575F0075CFB3 /* Friend.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F1F86CA126AD56C00075CFB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F103069A26A1CF4100B6BE64 /* MyProfileViewController.swift */,
+				F1F86C9E26AD56210075CFB3 /* FriendsTableViewController.swift */,
+				F103068A26A1CED500B6BE64 /* ViewController.swift */,
+				F10306A926A79D9900B6BE64 /* ChatBotViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F1F86CA426AD58C90075CFB3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F1F86CA526AD58E00075CFB3 /* FriendsTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,10 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F103068B26A1CED500B6BE64 /* ViewController.swift in Sources */,
+				F1F86CA326AD575F0075CFB3 /* Friend.swift in Sources */,
 				F103068726A1CED500B6BE64 /* AppDelegate.swift in Sources */,
+				F1F86CA626AD58E00075CFB3 /* FriendsTableViewCell.swift in Sources */,
 				F10306AA26A79D9900B6BE64 /* ChatBotViewController.swift in Sources */,
 				F103068926A1CED500B6BE64 /* SceneDelegate.swift in Sources */,
-				F103069B26A1CF4100B6BE64 /* AutolayoutViewController.swift in Sources */,
+				F1F86C9F26AD56210075CFB3 /* FriendsTableViewController.swift in Sources */,
+				F103069B26A1CF4100B6BE64 /* MyProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

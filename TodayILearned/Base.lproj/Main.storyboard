@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="97" y="94"/>
         </scene>
-        <!--Autolayout View Controller-->
+        <!--My Profile View Controller-->
         <scene sceneID="B49-x6-Pqi">
             <objects>
-                <viewController id="G8a-QY-1bS" customClass="AutolayoutViewController" customModule="TodayILearned" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="G8a-QY-1bS" customClass="MyProfileViewController" customModule="TodayILearned" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwq-M9-L10">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

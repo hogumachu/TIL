@@ -1,5 +1,5 @@
 //
-//  AutolayoutViewController.swift
+//  MyProfileViewController.swift
 //  TodayILearned
 //
 //  Created by 홍성준 on 2021/07/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AutolayoutViewController: UIViewController {
+class MyProfileViewController: UIViewController {
     let closeButton = UIButton()
     let topView = UIView()
     let bottomView = UIView()
@@ -264,7 +264,7 @@ extension UIView {
     }
 }
 
-extension AutolayoutViewController {
+extension MyProfileViewController {
 //    Device가 가로인지 세로인지 판단하여 horizontalStackView의 height를 변경함
     func changehorizontalStackViewHeight() {
         if UIDevice.current.orientation.isLandscape {
