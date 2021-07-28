@@ -36,3 +36,8 @@
 |Chapter|Title|Date|
 |:-------:|:-----:|:---:|
 |#1|[화면 전환 (ViewController)](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#1-%ED%99%94%EB%A9%B4-%EC%A0%84%ED%99%98-viewcontroller)|2021.07.18|
+|#2|[ignorElements -> Completable](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#2-ignoreelements---completable)|2021.07.28|
+
+
+
+
