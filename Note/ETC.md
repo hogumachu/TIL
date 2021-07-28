@@ -34,3 +34,22 @@ override func viewDidLoad() {
 }
 ```
 * dismiss 로 이전 VC로 돌아감.
+
+# 2. ignoreElements() -> Completable
+```swift
+public func ignoreElements()
+    -> Observable<Never> {
+    self.flatMap { _ in Observable<Never>.empty() }
+    .asCompletable()
+}
+```
+* 전에는 이렇게 Completable 로 자동으로 변환해줬음.
+
+```swift
+public func ignoreElements()
+    -> Observable<Never> {
+    self.flatMap { _ in Observable<Never>.empty() }
+}
+```
+* 그러나 지금은 안해줌.
+* 따라서 `someObservable.ignoreElements().asCompletable()` 이렇게 직접 적어주자.
