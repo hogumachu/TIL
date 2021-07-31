@@ -151,3 +151,17 @@ extension AutolayoutViewController {
 * 세로일 때는 superview의 height의 2 / 3, 가로일 떄는 1 / 3 을 하였음.
 
 <img src = "https://user-images.githubusercontent.com/74225754/126033529-33ba39b9-a9b0-4181-b989-72569a3e2bf5.png" width="30%" height="30%"> <img src = "https://user-images.githubusercontent.com/74225754/126033530-646d965f-38a4-41de-822b-2d538db28ef8.png" width="60%" height="60%">
+
+
+# 3. Leading, Trailng & Left, Right
+```swift
+someView.leftAnchor.constraint(equalTo: view.leftAnchor)
+someView.leading.constraint(equalTo: view.leading)
+
+```
+
+* left 와 right 는 말 그대로 왼쪽 오른쪽.
+* leading 과 trailing 은 왼쪽 오른쪽이 아닌 읽는 방향으로 생각하면 된다.
+* 한국에서는 글을 왼쪽에서 읽기 때문에 leading이 왼쪽인 것.
+* 만약 오른쪽에서 글을 읽는 나라라면 leading은 오른쪽이 된다.
+* `따라서 다국적 애플리케이션을 만들거라면 이를 잘 고려해야 함.`
