@@ -153,7 +153,7 @@ extension AutolayoutViewController {
 <img src = "https://user-images.githubusercontent.com/74225754/126033529-33ba39b9-a9b0-4181-b989-72569a3e2bf5.png" width="30%" height="30%"> <img src = "https://user-images.githubusercontent.com/74225754/126033530-646d965f-38a4-41de-822b-2d538db28ef8.png" width="60%" height="60%">
 
 
-# 3. Leading, Trailng & Left, Right
+# 3. Leading, Trailing & Left, Right
 ```swift
 someView.leftAnchor.constraint(equalTo: view.leftAnchor)
 someView.leading.constraint(equalTo: view.leading)
