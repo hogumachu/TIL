@@ -53,3 +53,14 @@ public func ignoreElements()
 ```
 * 그러나 지금은 안해줌.
 * 따라서 `someObservable.ignoreElements().asCompletable()` 이렇게 직접 적어주자.
+
+
+# 3. Map vs. CompactMap
+```swift
+let optionalNumber: [Int?] = [1, 2, 3, 4, 5, nil, nil, 6, 7, 8]
+
+let mapNumber = optionalNumber.map { $0 }
+let compactMapNumber = optionalNumber.compactMap { $0 }
+```
+* `mapNumber` 는 옵셔널 값 그대로 `[Optional(1), Optional(2), Optional(3), Optional(4), Optional(5), nil, nil, Optional(6), Optional(7), Optional(8)]`
+* `compactMapNumber` 는 옵셔널 값이 아닌 `[1, 2, 3, 4, 5, 6, 7, 8]`
