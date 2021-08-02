@@ -1,3 +1,4 @@
+
 AutoLayout
 ==========
 # 1. Extension, Anchor
@@ -165,3 +166,41 @@ someView.leading.constraint(equalTo: view.leading)
 * 한국에서는 글을 왼쪽에서 읽기 때문에 leading이 왼쪽인 것.
 * 만약 오른쪽에서 글을 읽는 나라라면 leading은 오른쪽이 된다.
 * `따라서 다국적 애플리케이션을 만들거라면 이를 잘 고려해야 함.`
+
+
+
+
+# 4. SafeAreaInset
+
+```swift
+self?.keyboardHeightAnchor = self?.keyboardView.topAnchor.constraint(equalTo: (self?.keyboardView.bottomAnchor)!, constant: -height)
+```
+* 이게 기존 코드인데 이 상태에서 실행하면
+
+
+![스크린샷 2021-08-02 오후 6 28 00](https://user-images.githubusercontent.com/74225754/127839016-10a6f045-08ef-4dbb-be25-753b207b4384.png)
+![스크린샷 2021-08-02 오후 6 26 53](https://user-images.githubusercontent.com/74225754/127839010-1b6d5016-1960-42cb-acb0-ac03bc127220.png)
+
+* 이런 식으로 safeArea 도 같이 변경되고 있음.
+
+
+![스크린샷 2021-08-02 오후 6 27 37](https://user-images.githubusercontent.com/74225754/127838996-b7d37e77-1976-4d8f-ae22-6964d8182f3e.png)
+![스크린샷 2021-08-02 오후 6 27 30](https://user-images.githubusercontent.com/74225754/127839006-683d650c-c20a-4eeb-9dc1-eb81a7fd400a.png)
+
+* safeArea 가 없는 상태에서는 정상적으로 작동함.
+
+```swift
+self?.keyboardHeightAnchor = self?.keyboardView.topAnchor.constraint(equalTo: (self?.keyboardView.bottomAnchor)!, constant: -height + (self?.view.safeAreaInsets.bottom ?? 0))
+```
+* 기존 코드에 `view.safeAreaInsets.bottom` 만큼 빼주니 정상적으로 동작함.
+
+
+![스크린샷 2021-08-02 오후 6 26 45](https://user-images.githubusercontent.com/74225754/127839012-fea81c12-55dc-4ed0-b689-decfbbda7666.png)
+
+
+
+
+
+
+
+
