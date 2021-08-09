@@ -1102,3 +1102,25 @@ retryWhenTrigger.onNext("A")
 // 0, 1, 2, 3, 4, 5, Finish retryWhen
 ```
 * retryWhen 은 trigger 를 받아서 trigger에 Next 될 때 재시도함.
+
+# 8. Lifecycle
+
+* `Observable` 은 `create` 로 생성이 되고 `subscribe` 를 해야 실행.
+
+* `onNext` 로 값을 줄 수 있으며 `onCompleted`, `onError` 로 `Diposed` 시켜 종료할 수 있음.
+물론 도중에 `dipose` 도 가능함.
+
+```
+1. Create
+
+1 - 1. onNext,  1 - 2. onCompleted -> Disposed, 1 - 3. onError -> Disposed`
+
+1 - 1 - 1. onNext, 1 - 1 - 2. onCompleted -> Disposed, 1 - 1 - 3. onError -> Disposed`
+
+이런 식으로 진행
+```
+
+* `Observable` 이 `dispose` 되면 재사용이 불가능 `onNext` 나 다시 `subscirbe` 하여 사용 불가.
+다시 `create` 하여 할당해야 사용 가능.
+
+* `dipose` 되면 참조가 해제.
