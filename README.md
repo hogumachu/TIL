@@ -46,6 +46,11 @@
 |#2|[ignorElements -> Completable](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#2-ignoreelements---completable)|2021.07.28|
 |#3|[Map vs. CompactMap](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#3-map-vs-compactmap)|2021.08.01|
 
+## 알고리즘
+|Chapter|Title|Date|
+|:-------:|:-----:|:---:|
+|#1|[삽입 정렬 (Insertion Sort)](https://github.com/hogumachu/TIL/blob/main/Note/Algorithm.md#11-insertion-sort)|2021.08.22|
+
 
 
 
