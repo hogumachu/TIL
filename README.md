@@ -52,6 +52,8 @@
 |#1|[삽입 정렬 (Insertion Sort)](https://github.com/hogumachu/TIL/blob/main/Note/Algorithm.md#1-insertion-sort)|2021.08.22|
 |#2|[합병 정렬 (Merge Sort)](https://github.com/hogumachu/TIL/blob/main/Note/Algorithm.md#2-merge-sort)|2021.08.22|
 |#3|[최대 구간 합 문제 (Maximum Subarray Problem)](https://github.com/hogumachu/TIL/blob/main/Note/Algorithm.md#3-maximum-subarray-problem)|2021.08.22|
+|#4|[이진 탐색 (Binary Search)](https://github.com/hogumachu/TIL/blob/main/Note/Algorithm.md#4-binary-search)|2021.08.22|
+
 
 
 
