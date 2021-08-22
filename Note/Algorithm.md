@@ -1,7 +1,6 @@
 알고리즘
 ==========
-# 1. 정렬
-## 1.1 Insertion Sort
+# 1. Insertion Sort
 
 ```swift
 func insertionSort(_ arr: [Int]) -> [Int] {
@@ -30,7 +29,7 @@ func insertionSort(_ arr: [Int]) -> [Int] {
 * `Index 가 4`일 때 `[1, 3, 4, 2, 5], [1, 3, 2, 4, 5], [1, 2, 3, 4, 5]` 이렇게 정렬되어 끝이남.
 
 
-## 1.2 Merge Sort
+# 2. Merge Sort
 
 ```swift
 func mergeSort(_ arr: [Int]) -> [Int] {
@@ -154,3 +153,86 @@ func merge(_ left: [Int], _ right: [Int]) -> [Int] {
 * 시간 복잡도:  `평균 O(n log n)`, `최악 O(n log n)`
 * 공간 복잡도: `O(n)`
 * 분할 정복 (Divide & Conquer) 알고리즘
+
+
+# 3. Maximum Subarray Problem
+
+## 3.1. Brute Force
+
+```swift
+func bruteForceMaximumSubarray(_ arr: [Int]) -> Int {
+    var maxSum = 0
+    
+    for i in 0..<arr.count {
+        for j in 0..<arr.count - i {
+            var sum = 0
+            for k in j...j+i {
+                sum += arr[k]
+            }
+            maxSum = max(sum, maxSum)
+        }
+    }
+    
+    return maxSum
+}
+```
+
+* 시간 복잡도: `O(n^3)`
+* 3중 반복문을 사용하여 찾음
+* 매우 비효율적 -> 사용 X
+
+## 3.2. Divide & Conquer
+
+```swift
+func divideConquerMaximumSubarray(_ arr: [Int]) -> Int {
+    if arr.count == 1 {
+        return arr[0]
+    }
+    
+    let mid = arr.count / 2
+    var left = -Int.max
+    var right = -Int.max
+    var sum = 0
+    
+    for i in stride(from: mid, through: 0, by: -1) {
+        sum += arr[i]
+        left = max(left, sum)
+    }
+    
+    sum = 0
+    
+    for i in mid + 1..<arr.count {
+        sum += arr[i]
+        right = max(right, sum)
+    }
+    
+    let recursive = max(divideConquerMaximumSubarray(Array(arr[0..<mid])), divideConquerMaximumSubarray(Array(arr[mid..<arr.count])))
+    
+    return max(left + right, recursive)
+}
+```
+
+* 시간 복잡도: `O(n^2)`
+* 분할 정복을 이용하여 찾음
+* 비효율적이며 Kadane 알고리즘 보다 복잡함
+
+
+## 3.3. Kadane's Algorithm
+
+```swift
+func kadaneMaximumSubarray(_ arr: [Int]) -> Int {
+    var sum = arr[0]
+    var maxSum = arr[0]
+    for i in 1..<arr.count {
+        sum = max(arr[i] + sum, arr[i])
+        maxSum = max(maxSum, sum)
+    }
+    
+    return maxSum
+}
+```
+
+* 시간 복잡도: `O(n)`
+* Dynamic Programing 을 이용한 방법
+* 현재 `arr[index] 의 값과 index - 1 까지의 합 (sum)` vs. `arr[index] 의 값 중 최대 값`을 `sum` 에 넣음
+* 현재 `index 를 포함한 합 (sum)` 과 기존에 설정되어 있는 `최대 값 (maxSum)` 을 비교하여 `maxSum` 을 갱신
