@@ -236,3 +236,53 @@ func kadaneMaximumSubarray(_ arr: [Int]) -> Int {
 * Dynamic Programing 을 이용한 방법
 * 현재 `arr[index] 의 값과 index - 1 까지의 합 (sum)` vs. `arr[index] 의 값 중 최대 값`을 `sum` 에 넣음
 * 현재 `index 를 포함한 합 (sum)` 과 기존에 설정되어 있는 `최대 값 (maxSum)` 을 비교하여 `maxSum` 을 갱신
+
+
+# 4. Binary Search 
+
+```swift
+func binarySearch(_ arr: [Int], _ start: Int, _ end: Int, _ x: Int) -> Int? {
+    if start >= end {
+        if arr[start] == x {
+            return start
+        } else {
+            return nil
+        }
+    }
+    
+    let mid = (start + end) / 2
+    
+    if arr[mid] == x {
+        return mid
+    } else if arr[mid] < x {
+        return binarySearch(arr, mid + 1, end, x)
+    } else {
+        return binarySearch(arr, start, mid - 1, x)
+    }
+}
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13]
+
+(1...10).forEach { value in
+    if let index = binarySearch(arr, 0, arr.count - 1, value) {
+        print("value:", value, "index:", index)
+    } else {
+        print("Can't Find")
+    }
+}
+
+//value: 1 index: 0
+//value: 2 index: 1
+//value: 3 index: 2
+//value: 4 index: 3
+//value: 5 index: 4
+//value: 6 index: 5
+//value: 7 index: 6
+//value: 8 index: 7
+//Can't Find
+//value: 10 index: 8
+
+```
+* 시간 복잡도: `O(log n)`
+* 배열이 오름차순으로 정렬되어 있을 때만 값을 찾을 수 있음
+* 분할 정복 (Divide & Conquer) 알고리즘
