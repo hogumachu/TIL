@@ -50,6 +50,7 @@
 |Chapter|Title|Date|
 |:-------:|:-----:|:---:|
 |#1|[삽입 정렬 (Insertion Sort)](https://github.com/hogumachu/TIL/blob/main/Note/Algorithm.md#11-insertion-sort)|2021.08.22|
+|#2|[합병 정렬 (Merge Sort)](https://github.com/hogumachu/TIL/blob/main/Note/Algorithm.md#12-merge-sort)|2021.08.22|
 
 
 
