@@ -28,3 +28,129 @@ func insertionSort(_ arr: [Int]) -> [Int] {
 * Index 가 1, 2 일 때는 정렬을 하지 않음
 * `Index 가 3`일 때 arr 은 `[3, 4, 1, 5, 2], [3, 1, 4, 5, 2], [1, 3, 4, 5, 2]` 이렇게 정렬
 * `Index 가 4`일 때 `[1, 3, 4, 2, 5], [1, 3, 2, 4, 5], [1, 2, 3, 4, 5]` 이렇게 정렬되어 끝이남.
+
+
+## 1.2 Merge Sort
+
+```swift
+func mergeSort(_ arr: [Int]) -> [Int] {
+    // 배열의 크기가 1 이하 일 때는 배열 그대로 return -> 정렬할 필요 없음
+    if arr.count <= 1 {
+        return arr
+    }
+    
+    
+    // 분할 정복을 위해 index 를 반으로 나눔
+    let mid = arr.count / 2
+    
+    // mid 를 중심으로 왼쪽 오른쪽으로 나누어 mergeSort 를 호출 (recursive)
+    let left = mergeSort(Array(arr[0..<mid]))
+    let right = mergeSort(Array(arr[mid..<arr.count]))
+    
+    // left 와 right 를 merge함
+    return merge(left, right)
+}
+
+func merge(_ left: [Int], _ right: [Int]) -> [Int] {
+    // left 의 값과 right 의 값을 비교할 index 를 각각 생성
+    var l = 0
+    var r = 0
+    
+    // 정렬된 배열을 저장할 빈 배열 생성
+    var arr: [Int] = []
+    
+    
+    // l 이 left 의 count 와 같아지거나 right 의 count 와 같아지면 배열 index 를 넘어감
+    while l < left.count && r < right.count {
+        
+        // left 가 작으면 left 에 있는 값을 append 하고 l 증가
+        if left[l] < right[r] {
+            arr.append(left[l])
+            l += 1
+            
+            // right 가 작으면 right 에 있는 값을 append 하고 r 증가
+        } else if left[l] > right[r] {
+            arr.append(right[r])
+            r += 1
+            
+            // 그 외 (left[l] == right[l]) 에는 두 값을 모두 append 하고 각 index 증가
+        } else {
+            arr.append(left[l])
+            arr.append(right[r])
+            l += 1
+            r += 1
+        }
+    }
+    
+    // 만약 left 의 배열 끝까지 가지 않았다면 남은 left 배열의 값들을 append 함
+    while l < left.count {
+        arr.append(left[l])
+        l += 1
+    }
+    
+    // 만약 right 의 배열 끝까지 가지 않았다면 남은 right 배열의 값들을 append 함
+    while r < right.count {
+        arr.append(right[r])
+        r += 1
+    }
+    
+    return arr
+}
+
+//MergeSort: [5, 4, 3, 2, 1]
+// -> mid 로 나뉘어 MergeSort (left, right) 호출
+
+//MergeSort: [5, 4]
+// -> mid 로 나뉘어 MergeSort (left, right) 호출
+
+//MergeSort: [5]
+// -> arr.count 가 1이므로 그대로 arr return
+
+//MergeSort: [4]
+// -> arr.count 가 1이므로 그대로 arr return
+
+//Left: [5]
+//Right: [4]
+// -> Merge(Left, Right) 진행
+//Merged: [4, 5]
+// -> [4, 5] 로 Merge 되어서 return
+
+//MergeSort: [3, 2, 1]
+// -> mid 로 나뉘어 MergeSort (left, right) 호출
+
+//MergeSort: [3]
+// -> arr.count 가 1이므로 그대로 arr return
+
+//MergeSort: [2, 1]
+// -> mid 로 나뉘어 MergeSort (left, right) 호출
+
+//MergeSort: [2]
+// -> arr.count 가 1이므로 그대로 arr return
+
+//MergeSort: [1]
+// -> arr.count 가 1이므로 그대로 arr return
+
+//Left: [2]
+//Right: [1]
+// -> Merge(Left, Right) 진행
+//Merged: [1, 2]
+// -> [1, 2] 로 Merge 되어서 return
+
+//Left: [3]
+//Right: [1, 2]
+// -> Merge(Left, Right) 진행
+//Merged: [1, 2, 3]
+// -> [1, 2, 3] 로 Merge 되어서 return
+
+//Left: [4, 5]
+//Right: [1, 2, 3]
+// -> Merge(Left, Right) 진행
+//Merged: [1, 2, 3, 4, 5]
+// -> [1, 2, 3, 4, 5] 로 Merge 되어서 return
+
+//[1, 2, 3, 4, 5]
+// -> 정상적으로 정렬 되었음
+```
+* 시간 복잡도:  `평균 O(n log n)`, `최악 O(n log n)`
+* 공간 복잡도: `O(n)`
+* 분할 정복 (Divide & Conquer) 알고리즘
