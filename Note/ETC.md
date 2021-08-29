@@ -138,3 +138,91 @@ third = nil
 ```
 * second 를 nil 로 하였을 때는 아직 third 가 참조하고 있기 때문에 deinit 되지 않음
 * third 를 nil 로 하였을 때 참조하는 것이 없으므로 deinit
+
+## 4.1 Strong Reference Cycle
+
+```swift
+class Person {
+    let name: String
+    
+    var bestFriend: Person?
+    
+    init(name: String) {
+        self.name = name
+        print("Init \(name)")
+    }
+    
+    deinit {
+        print("Deinit \(name)")
+    }
+}
+```
+* 위와 동일한 코드이나 `var bestFriend: Person?` 을 추가하였음
+
+```swift
+var john: Person?
+var david: Person?
+
+john = Person(name: "John")
+// John ARC + 1 (현재: 1)
+// Init John
+
+david = Person(name: "David")
+// David ARC + 1 (현재: 1)
+// Deinit John
+```
+
+* John 과 David 라는 사람을 생성
+
+```swift
+john?.bestFriend = david
+// David ARC + 1 (현재: 2)
+
+david?.bestFriend = john
+// John ARC + 1 (현재: 2)
+```
+
+* bestFriend 를 서로 선택하도록 함
+* 따라서 ARC 가 각각 1씩 더 증가함
+
+```swift
+john = nil
+// John ARC - 1 (현재: 1)
+
+david = nil
+// David ARC - 1 (현재: 1)
+```
+
+* 둘 다 nil 을 할당했으나 deinit 되지 않음
+*  bestFriend 에서 서로를 참조하고 있는 `Strong Reference Cycle` 이 일어남
+
+## 4.2 Weak & Unowned Reference
+
+```swift
+class Person {
+    // 생략
+    
+    weak var bestFriend: Person?
+    // var bestFriend: Person?
+    
+    // 생략
+}
+```
+
+```swift
+class Person {
+    // 생략
+    
+    unowned var bestFriend: Person?
+    // var bestFriend: Person?
+    
+    // 생략
+}
+```
+
+* Weak reference: 약한 참조
+* Unowned reference: 미소유 참조
+* Reference count 를 증가시키지 않음
+* 따라서 강한 순환 참조에 대한 문제 해결
+* Weak 은 값에 nil 을 할당할 수 있지만, Unowned 는 nil 을 할당할 수 없음
+* 즉, 미소유 참조는 옵셔널 타입이 불가능함.
