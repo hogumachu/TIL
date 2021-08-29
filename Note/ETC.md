@@ -1,6 +1,6 @@
 깨알 공부 추가
 ==========
-## 1. 화면 전환 (ViewController)
+# 1. 화면 전환 (ViewController)
 
 ```swift
 @objc func gotoAutoLayoutViewController(sender: UIButton) {
@@ -64,3 +64,77 @@ let compactMapNumber = optionalNumber.compactMap { $0 }
 ```
 * `mapNumber` 는 옵셔널 값 그대로 `[Optional(1), Optional(2), Optional(3), Optional(4), Optional(5), nil, nil, Optional(6), Optional(7), Optional(8)]`
 * `compactMapNumber` 는 옵셔널 값이 아닌 `[1, 2, 3, 4, 5, 6, 7, 8]`
+
+
+# 4. Automatic Reference Counting (ARC)
+
+* `Swift` 는 `App Memory` 를 다루기 위해 `ARC` 를 사용
+* `ARC` 는 자동으로 더 이상 필요하지 않은 instance 들을 풀어준다 (해방한다, free up)
+
+```swift
+class Person {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+        print("Init \(name)")
+    }
+    
+    deinit {
+        print("Deinit \(name)")
+    }
+}
+```
+
+* 먼저 ARC 가 작동하는 지 확인을 위한 Class 생성
+```swift
+var first: Person?
+var second: Person?
+var third: Person?
+```
+
+* `first` , `second`, `third` 를 선언
+
+```swift
+first = Person(name: "First Hogumachu")
+// first 의 ARC + 1 (현재: 1)
+// Init First Hogumachu
+```
+
+* first 에 Person 을 할당함으로 ARC 가 1이 증가하여 1이 되었음
+* init 되었으므로 설정해둔 print 출력
+
+```swift
+second = Person(name: "Second Hogumachu")
+// second 의 ARC + 1 (현재: 1)
+// Init Second Hogumachu
+```
+
+* 위와 동일
+
+
+```swift
+third = second
+// second 의 ARC + 1 (현재: 2)
+```
+
+* third 를 second 와 같은 것을 참조하게 함
+* ARC 가 1 증가하여 2가 되었음
+
+```swift
+first = nil
+// first 의 ARC - 1 (현재: 0)
+// Deinit First Hogumachu
+```
+* first 를 nil 로 하여 ARC는 -1 이 되어 해당 reference 를 참조하는 것이 없으므로 deinit
+
+```swift
+second = nil
+// second 의 ARC - 1 (현재: 1)
+
+third = nil
+// second의 ARC - 1 (현재: 0)
+// Deinit Second Hogumachu
+```
+* second 를 nil 로 하였을 때는 아직 third 가 참조하고 있기 때문에 deinit 되지 않음
+* third 를 nil 로 하였을 때 참조하는 것이 없으므로 deinit
