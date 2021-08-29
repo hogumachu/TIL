@@ -45,6 +45,7 @@
 |#1|[화면 전환 (ViewController)](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#1-%ED%99%94%EB%A9%B4-%EC%A0%84%ED%99%98-viewcontroller)|2021.07.18|
 |#2|[ignorElements -> Completable](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#2-ignoreelements---completable)|2021.07.28|
 |#3|[Map vs. CompactMap](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#3-map-vs-compactmap)|2021.08.01|
+|#4|[Automatic Reference Counting (ARC)](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#4-automatic-reference-counting-arc)|2021.08.29|
 
 ## 알고리즘
 |Chapter|Title|Date|
