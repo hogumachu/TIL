@@ -82,3 +82,101 @@ task.resume()
 <img src = "https://user-images.githubusercontent.com/74225754/126426432-0bbb7ced-b84f-476b-8d2d-ec18c7195e86.png" width="30%" height="30%"> <img src = "https://user-images.githubusercontent.com/74225754/126426471-5430c52f-db60-43d5-b667-8e37459dad65.png" width="60%" height="60%">
 
 * 왼쪽은 iOS 실행 화면, 오른쪽은 Django 에서 실행 화면.
+
+
+# 2. Reusable Request
+
+```swift
+
+func request(urlString: String, method: String, params: [String: Any]?, header: [String: String]?, completionHandler: @escaping (Bool, Any) -> Void) {
+    // URL String 받은 것을 URL 로 변경
+    let url = URL(string: urlString)!
+    // URL 을 URLRequest 로 변경
+    var urlRequest = URLRequest(url: url)
+    
+    // httpMethod 도 설정해줌
+    urlRequest.httpMethod = method
+    
+    // 만약 헤더가 존재하면 추가
+    if let header = header {
+        header.forEach {
+            urlRequest.addValue($0.value, forHTTPHeaderField: $0.key)
+        }
+    }
+    
+    // 만약 파라미터가 있다면 추가
+    if let params = params {
+        urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+    }
+    
+    URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        // 에러 처리
+        if let error = error {
+            print("Error:", error)
+            return
+        }
+        
+        // Response 에러 처리와 HTTPURLResponse 로 변경
+        guard let response = response as? HTTPURLResponse else {
+            print("Response Error")
+            return
+        }
+        
+        // 만약 상태 코드가 성공이 아닐 경우
+        guard (200...299).contains(response.statusCode) else {
+            print("Invalid StatusCode:", response.statusCode)
+            return
+        }
+        
+        // 데이터가 nil 일 경우
+        guard let data = data else {
+            print("Invalid Data")
+            return
+        }
+        
+        // 여기까지 왔다는 건 오류 없이 진행되었다는 얘기
+        // completionHander 에 true 와 data 를 보냄
+        completionHandler(true, data)
+    }.resume()
+}
+
+```
+
+* request 를 함수로 만들어 재사용 가능하게 함
+* request 성공 시 completionHander 로 (true, data) 를 내보냄
+
+```swift
+let myURL = "My URL"
+
+struct Hogumachu: Decodable {
+    let name: String
+    let age: Int
+    let address: String?
+}
+```
+
+* 만약 JSON 구조와 URL 이 이렇다면
+
+```swift
+// request 에 URL 과 method 그리고 params 와 header 를 작성
+request(urlString: myURL, method: "GET", params: nil, header: ["Content-Type": "application/json"]) { success, data in
+    // true 일 때
+    if success {
+        // 데이터를 해당 JSON 형식으로 변경하지 못하면 return
+        guard let data = data as? Hogumachu else {
+            print("Can't Convert Data")
+            return
+        }
+        
+        // 변경된 JSON 출력
+        print(data.name)
+        print(data.age)
+        print(data.address ?? "No address")
+        
+    } else {
+        print("Can't Find Data")
+    }
+}
+```
+
+* 이런 식으로 사용 가능
