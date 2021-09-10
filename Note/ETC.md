@@ -226,3 +226,46 @@ class Person {
 * 따라서 강한 순환 참조에 대한 문제 해결
 * Weak 은 값에 nil 을 할당할 수 있지만, Unowned 는 nil 을 할당할 수 없음
 * 즉, 미소유 참조는 옵셔널 타입이 불가능함.
+
+
+# 5. Subscript
+
+* String 을 배열처럼 index 로 간단하게 접근 가능
+
+```swift
+extension String {
+    subscript (indices: ClosedRange<Int>) -> String {
+        return String(self[self.index(self.startIndex, offsetBy: indices.lowerBound)...self.index(self.startIndex, offsetBy: indices.upperBound)])
+    }
+    
+    subscript (indices: Range<Int>) -> String {
+        return String(self[self.index(self.startIndex, offsetBy: indices.lowerBound)..<self.index(self.startIndex, offsetBy: indices.upperBound)])
+    }
+    
+    subscript (index: Int) -> String {
+        return String(self[self.index(self.startIndex, offsetBy: index)])
+    }
+}
+```
+
+* 이렇게 작성하면 str[0] , str[1...3], str[0..<2] 이런 식으로 접근 가능
+
+```swift
+let a = "12345"
+let b = "abcdef"
+let range = 1..<3
+
+print(a[1..<3])
+// 23
+print(a[range])
+// 23
+print(a[2...4])
+// 345
+print(b[3])
+// d
+print(b[1...3])
+// bcd
+print(a[0..<2] + b[1...3])
+// 12bcd
+
+```
