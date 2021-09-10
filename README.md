@@ -17,6 +17,7 @@
 |Chapter|Title|Date|
 |:-------:|:-----:|:---:|
 |#1|[JSON, URLSession](https://github.com/hogumachu/TIL/blob/main/Note/Network.md#1-json--urlsession)|2021.07.21|
+|#2|[Reusable Request](https://github.com/hogumachu/TIL/blob/main/Note/Network.md#2-reusable-request)|2021.09.04|
 
 
 ## RxSwift
