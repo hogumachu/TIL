@@ -151,9 +151,10 @@ hashTable.scanBuckets()
 
 # 2. Stack
 
-* FILO (First-In-Last-Out)
+* FILO (First-In-Last-Out), LIFO (Last-In-First-Out)
 * 처음에 들어간 값이 가장 나중에 나오고 가장 나중에 들어간 값이 가장 먼저 나옴
-* Push (값을 추가), Pop (값을 제거), Top (가장 나중에 들어간 값) 이 있음
+* Array 와 매우 유사하지만 Stack 은 제한적임
+* Push (값을 추가), Pop (값을 제거), Peak or Top (가장 나중에 들어간 값) 이 있음
 
 ```swift
 struct Stack<T> {
@@ -214,9 +215,10 @@ print(stack.pop())
 # 3. Queue
 
 * FIFO (First-In-First-Out)
+* BFS 에 사용
 * 처음 들어간 값이 먼저 나옴
 * Enqueue (값 추가), Dequeue (값 제거)
-* 단순하게 removeFirst() 로 배열의 가장 처음 값을 내보내도 되지만 그렇게 하면 시간이 오래 걸림
+* 단순하게 removeFirst() 로 배열의 가장 처음 값을 내보내면 dequeue 마다 O(n) 의 시간이 
 * 이를 해결하기 위해 현재 head 를 가리키는 (가장 처음의 값을 가리키는) cursor 라는 값을 생성하여 사용함
 * cursor 의 위치가 queue 안에 있는 배열의 count 가 되었을 때 배열과 cursor 를 초기화 시킴
 
