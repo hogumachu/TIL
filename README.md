@@ -47,6 +47,7 @@
 |#2|[ignorElements -> Completable](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#2-ignoreelements---completable)|2021.07.28|
 |#3|[Map vs. CompactMap](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#3-map-vs-compactmap)|2021.08.01|
 |#4|[Automatic Reference Counting (ARC)](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#4-automatic-reference-counting-arc)|2021.08.29|
+|#5|[Subscript](https://github.com/hogumachu/TIL/blob/main/Note/ETC.md#5-subscript)|2021.09.10|
 
 ## 알고리즘
 |Chapter|Title|Date|
