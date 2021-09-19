@@ -54,7 +54,7 @@
 |Chapter|Title|Date|
 |:-------:|:-----:|:---:|
 |#1|[해시 테이블 (Hash Table)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#1-hashtable)|2021.09.19|
-
+|#2|[스택 (Stack)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#2-stack)|2021.09.19|
 
 ## 알고리즘
 |Chapter|Title|Date|
