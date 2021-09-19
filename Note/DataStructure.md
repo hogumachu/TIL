@@ -147,3 +147,65 @@ hashTable.scanBuckets()
 ```
 
 참조: [Link](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Hash%20Table/HashTable.playground/Sources/HashTable.swift)
+
+
+# 2. Stack
+
+* FILO (First-In-Last-Out)
+* 처음에 들어간 값이 가장 나중에 나오고 가장 나중에 들어간 값이 가장 먼저 나옴
+* Push (값을 추가), Pop (값을 제거), Top (가장 나중에 들어간 값) 이 있음
+
+```swift
+struct Stack<T> {
+    private var arr: [T] = []
+    
+    func top() -> T? {
+        return arr.last
+    }
+    
+    mutating func push(element: T) {
+        arr.append(element)
+    }
+    
+    mutating func pop() -> T? {
+        if arr.isEmpty {
+            return nil
+        }
+        return arr.removeLast()
+    }
+    
+    func empty() -> Bool {
+        return arr.isEmpty
+    }
+}
+
+var stack = Stack<Int>()
+
+stack.push(element: 10)
+stack.push(element: 5)
+
+print(stack.pop())
+// Optional(5)
+// 나중에 들어간 5가 먼저 나옴
+
+print(stack.pop())
+// Optional(10)
+// 가장 마지막에 들어간 10이 나옴
+
+print(stack.pop())
+// nil
+// 값이 존재하지 않으므로 nil
+
+stack.push(element: 1)
+stack.push(element: 2)
+stack.push(element: 5)
+
+print(stack.pop())
+// Optional(5)
+
+print(stack.pop())
+// Optional(2)
+
+print(stack.pop())
+// Optional(1)
+```
