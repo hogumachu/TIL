@@ -209,3 +209,130 @@ print(stack.pop())
 print(stack.pop())
 // Optional(1)
 ```
+
+
+# 3. Queue
+
+* FIFO (First-In-First-Out)
+* 처음 들어간 값이 먼저 나옴
+* Enqueue (값 추가), Dequeue (값 제거)
+* 단순하게 removeFirst() 로 배열의 가장 처음 값을 내보내도 되지만 그렇게 하면 시간이 오래 걸림
+* 이를 해결하기 위해 현재 head 를 가리키는 (가장 처음의 값을 가리키는) cursor 라는 값을 생성하여 사용함
+* cursor 의 위치가 queue 안에 있는 배열의 count 가 되었을 때 배열과 cursor 를 초기화 시킴
+
+```swift
+struct Queue<T> {
+    private var arr: [T] = []
+    // 현재 First 위치를 나타내기 위한 커서 생성
+    private var cursor = 0
+    
+    // 전체 데이터의 수에서 cursor 를 뺀 값이 count 값
+    var count: Int {
+        return arr.count - cursor
+    }
+    
+    // 비어있는 지에 대한 값
+    // arr.count - curosr == 0 이 맞지만
+    // arr.count == 0 이라고 해도 상관 없음 (dequeue 에서 arr.count == cursor 일 때 계속 배열을 지우고 있기 떄문)
+    var isEmpty: Bool {
+        return arr.count - cursor == 0
+    }
+    
+    mutating func enqueue(element: T) {
+        arr.append(element)
+    }
+    
+    mutating func dequeue() -> T? {
+        // 만약 커서 위치가 배열의 count 보다 작으면
+        if cursor < arr.count {
+            // 먼저 dequeue 할 값을 정하고
+            let deq = arr[cursor]
+            // cursor 를 한 칸 앞으로 옮김
+            cursor += 1
+            
+            // 만약 커서 위치가 배열의 count 와 같아지면
+            if cursor == arr.count {
+                // 커서와 배열을 초기화 함
+                cursor = 0
+                arr = []
+            }
+            
+            return deq
+        } else {
+            // 만약 배열의 count 가 0이 아니면 초기화함
+            if arr.count != 0 {
+                cursor = 0
+                arr = []
+            }
+            return nil
+        }
+    }
+    
+    func scanQueue() {
+        print(arr)
+    }
+}
+
+var queue = Queue<Int>()
+queue.enqueue(element: 3)
+queue.enqueue(element: 4)
+queue.enqueue(element: 5)
+
+queue.scanQueue()
+// [3, 4, 5]
+
+// 현재 3, 4, 5 의 값이 들어가 있으므로 count = 3
+print(queue.count)
+// 3
+
+print(queue.dequeue())
+// Optional(3)
+queue.scanQueue()
+// [3, 4, 5]
+
+// 현재 3, 4, 5 의 값이 있지만 cursor 의 위치가 1이 되었으므로 count = 2
+print(queue.count)
+// 2
+
+
+print(queue.dequeue())
+// Optional(4)
+queue.scanQueue()
+// [3, 4, 5]
+print(queue.count)
+// 1
+
+
+queue.enqueue(element: 6)
+queue.enqueue(element: 7)
+queue.enqueue(element: 8)
+
+queue.scanQueue()
+// [3, 4, 5, 6, 7, 8]
+
+// 현재 3, 4, 5, 6, 7, 8 의 값이 있지만 cursor의 위치가 2 이므로 count = 4
+print(queue.count)
+// 4
+queue.scanQueue()
+// [3, 4, 5, 6, 7, 8]
+print(queue.dequeue())
+// Optional(5)
+queue.scanQueue()
+// [3, 4, 5, 6, 7, 8]
+print(queue.dequeue())
+// Optional(6)
+queue.scanQueue()
+// [3, 4, 5, 6, 7, 8]
+print(queue.dequeue())
+// Optional(7)
+queue.scanQueue()
+// [3, 4, 5, 6, 7, 8]
+print(queue.dequeue())
+// Optional(8)
+queue.scanQueue()
+// []
+print(queue.dequeue())
+// nil
+queue.scanQueue()
+// []
+```
