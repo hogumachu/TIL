@@ -338,3 +338,169 @@ print(queue.dequeue())
 queue.scanQueue()
 // []
 ```
+
+# 4. Heap
+
+* 최댓값 또는 최솟값을 쉽게 찾기 위해 고안된 자료 구조
+* 완전 이진 트리, 최대 힙, 최소 힙 존재
+
+```swift
+struct Heap<T> {
+    // 데이터를 저장하는 배열
+    private var nodes: [T] = []
+    
+    // 최대 힙인지 최소 힙인지에 대해 저장
+    private var order: (T, T) -> Bool
+    
+    // 처음 생성할 때 order 설정함
+    init(order: @escaping (T, T) -> Bool) {
+        self.order = order
+    }
+    
+    var isEmpty: Bool {
+        return nodes.isEmpty
+    }
+    
+    var count: Int {
+        return nodes.count
+    }
+    
+    func top() -> T? {
+        return nodes.first
+    }
+    
+    mutating func insert(_ element: T) {
+        // 값을 추가할 때 배열에 가장 뒤에 넣고
+        nodes.append(element)
+        
+        // 가장 아래에서 그 값을 올림 (order 에 맞춰 값을 정렬함)
+        shiftUp()
+    }
+    
+    mutating func remove() -> T? {
+        // 만약 비어있으면 nil 리턴
+        guard !nodes.isEmpty else {
+            return nil
+        }
+        
+        // 먼저 가장 상위에 있는 값과 가장 마지막에 있는 값을 교체하고
+        nodes.swapAt(0, nodes.count - 1)
+        
+        // 가장 마지막에 있는 값을 제거함
+        let removeValue = nodes.removeLast()
+        
+        // 가장 처음에 있는 값이 정렬되지 않은 값이므로 그 값을 내림
+        shiftDown()
+        return removeValue
+        
+    }
+    
+    mutating func shiftUp() {
+        // 가장 마지막에 있는 값을 올리기 위해 index 를 설정
+        var index = nodes.count - 1
+        
+        // index 가 0 보다 클 때 반복 (0과 같거나 작으면 parentIndex 가 존재하지 않음)
+        while index > 0 {
+            // 먼저 parentIndex 를 설정하고
+            let parentIndex = (index - 1) / 2
+            
+            // parentIndex 와 index 를 비교했을 때 index 의 값이 order 하게 되면
+            if order(nodes[index], nodes[parentIndex]) {
+                // 값을 교체하고
+                nodes.swapAt(index, parentIndex)
+                // index 도 교체함
+                index = parentIndex
+            } else {
+                return
+            }
+        }
+    }
+    
+    mutating func shiftDown() {
+        // 가장 상위에 있는 값을 선택하고
+        var index = 0
+        
+        // 그 index 와 교체할 swapIndex 도 설정함
+        var swapIndex = index
+        
+        // 배열의 크기를 넘지 않는 동안 반복함
+        while index < nodes.count {
+            // 자신의 왼쪽 오른쪽 childNode 의 index 를 설정함
+            let childIndices = [index * 2 + 1, index * 2 + 2]
+            
+            // childIndex 를 반복하여
+            childIndices.forEach { cIndex in
+                // 만약 childIndex 의 값이 크기보다 작고 childIndex 가 swapIndex 보다 order 하면
+                if cIndex < nodes.count && order(nodes[cIndex], nodes[swapIndex]) {
+                    // 교체함
+                    swapIndex = cIndex
+                }
+            }
+            
+            // 만약 index 와 swapIndex 가 같지 않다면
+            if index != swapIndex {
+                // 둘이 값을 교체하고
+                nodes.swapAt(index, swapIndex)
+                // index 도 교체함
+                index = swapIndex
+                
+            // 같다면 childIndex 중 해당 사항이 없던 것이므로 종료
+            } else { return }
+        }
+        
+    }
+    
+    // nodes 확인을 위해 만들었음
+    func scanNodes() {
+        print(nodes)
+    }
+}
+```
+
+```swift
+// maxHeap 으로 Heap 을 생성
+var heap = Heap<Int>(order: >)
+
+heap.insert(1)
+heap.insert(2)
+heap.insert(3)
+
+heap.scanNodes()
+// [3, 1, 2]
+print(heap.remove())
+// Optional(3)
+
+heap.scanNodes()
+// [2, 1]
+
+heap.insert(4)
+heap.scanNodes()
+// [4, 1, 2]
+
+heap.insert(5)
+heap.scanNodes()
+// [5, 4, 2, 1]
+
+heap.insert(3)
+heap.scanNodes()
+// [5, 4, 2, 1, 3]
+
+print(heap.remove())
+// Optional(5)
+
+heap.scanNodes()
+// [4, 3, 2, 1]
+
+print(heap.remove())
+// Optional(4)
+
+heap.scanNodes()
+// [3, 1, 2]
+
+print(heap.remove())
+// Optional(3)
+
+heap.scanNodes()
+// [2, 1]
+
+```
