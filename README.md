@@ -56,6 +56,7 @@
 |#1|[해시 테이블 (Hash Table)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#1-hashtable)|2021.09.19|
 |#2|[스택 (Stack)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#2-stack)|2021.09.19|
 |#3|[큐 (Queue)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#3-queue)|2021.09.19|
+|#4|[힙 (Heap)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#4-heap)|2021.09.21|
 
 
 ## 알고리즘
