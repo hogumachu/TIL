@@ -57,6 +57,7 @@
 |#2|[스택 (Stack)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#2-stack)|2021.09.19|
 |#3|[큐 (Queue)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#3-queue)|2021.09.19|
 |#4|[힙 (Heap)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#4-heap)|2021.09.21|
+|#5|[우선순위 큐 (Priority Queue)](https://github.com/hogumachu/TIL/blob/main/Note/DataStructure.md#5-priority-queue)|2021.09.22|
 
 
 ## 알고리즘
