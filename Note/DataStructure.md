@@ -504,3 +504,92 @@ heap.scanNodes()
 // [2, 1]
 
 ```
+
+# 5. Priority Queue
+* 우선순위 큐는 가장 중요한 요소가 항상 front 에 있는 큐
+* 우선순위 큐는 `리스트` 나 `맵` 처럼 추상적인 개념
+* 우선순위 큐는 `추상적 자료형 (Abstract Data Type, ADT)`
+* 추상적 자료형은 구현 방법을 명시하지 않는다는 점에서 자료 구조와 다름
+* 우선순위 큐는 Heap 이나 다양한 방법을 이용해 구현될 수 있음
+* Heap 은 자료 구조
+* Heap 으로 구현 시 remove, insert 대신 dequeue, enqueue 로 사용
+
+```swift
+struct PriorityQueue<T> {
+    private var nodes: [T] = []
+    private var order: (T, T) -> Bool
+    
+    init(order: @escaping (T, T) -> Bool) {
+        self.order = order
+    }
+    
+    var isEmpty: Bool {
+        return nodes.isEmpty
+    }
+    
+    var count: Int {
+        return nodes.count
+    }
+    
+    func top() -> T? {
+        return nodes.first
+    }
+    
+    mutating func enqueue(_ element: T) {
+        nodes.append(element)
+        shiftUp()
+    }
+    
+    mutating func dequeue() -> T? {
+        guard !nodes.isEmpty else {
+            return nil
+        }
+        
+        nodes.swapAt(0, nodes.count - 1)
+        let removeValue = nodes.removeLast()
+        shiftDown()
+        return removeValue
+        
+    }
+    
+    mutating func shiftUp() {
+        var index = nodes.count - 1
+        
+        while index > 0 {
+            let parentIndex = (index - 1) / 2
+            
+            if order(nodes[index], nodes[parentIndex]) {
+                nodes.swapAt(index, parentIndex)
+                index = parentIndex
+            } else {
+                return
+            }
+        }
+    }
+    
+    mutating func shiftDown() {
+        var index = 0
+        var swapIndex = index
+        
+        while index < nodes.count {
+            let childIndices = [index * 2 + 1, index * 2 + 2]
+            
+            childIndices.forEach { cIndex in
+                if cIndex < nodes.count && order(nodes[cIndex], nodes[swapIndex]) {
+                    swapIndex = cIndex
+                }
+            }
+            
+            if index != swapIndex {
+                nodes.swapAt(index, swapIndex)
+                index = swapIndex
+            } else { return }
+        }
+        
+    }
+    
+    func scanNodes() {
+        print(nodes)
+    }
+}
+```
