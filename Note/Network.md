@@ -180,3 +180,27 @@ request(urlString: myURL, method: "GET", params: nil, header: ["Content-Type": "
 ```
 
 * 이런 식으로 사용 가능
+
+
+# 3. URL Session
+* HTTP/HTTPS 기반 요청을 처리하기 위한 클래스 (클래스 모음)
+
+## URL Session Type (URLSessionConfiguration)
+* shared: URL Session 이 가지고 있는 Singleton, configuration object 를 가지고 있지 않음 (커스텀 불가).
+
+* .default: shared 와 유사하지만 configure 가능. Delegate 가능
+
+* .ephemeral: shared 와 유사하지만 cache, cookie, credential 을 디스크에 저장하지 않음
+
+* .background: 앱이 진행 중이지 않는 동안 upload 그리고 download 를 진행할 때 사용
+
+## URL Session Task
+* Data Task: Data Task 는 resouse 를 서버로 request 하고 NSData Object(s) 를 받음 (메모리에 저장). shared, .default, .ephemeral session 은 지원하나 .background session 은 지원하지 않음.
+
+* Upload Task: Data Task 와 비슷하나 request body 를 사용하기 쉽게 제공함. .background 도 제공.
+
+* Download Task: Resource 를 메모리가 아닌 디스크에 직접 다운로드함. 모든 session type 을 지원.
+
+* Stream Task: Host name 과 port 또는 net service obejct 로 부터 TCP/IP 연결을 설정함.
+
+* WebSocket Task: iOS 13.0+ 
