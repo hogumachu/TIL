@@ -46,7 +46,7 @@
 
 ## More
 
-Collection (Array, Dictionary) 그리고 String은 최적화를 사용하여 복사 성능 비용을 줄임
+Collection (Array, Dictionary) 그리고 String은 최적화를 사용하여 복사 성능 비용을 줄임
 
 즉시 복사본을 만드는 것이 아닌 먼저 저장된 메모리를 공유함
 
