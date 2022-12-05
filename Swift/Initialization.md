@@ -38,8 +38,6 @@ struct User {
 }
 ```
 
-
-
 ## Default Initializers
 
 모든 프로퍼티의 초기 값이 설정되어있으면 모든 프로퍼티를 기본 값으로 초기화하는 Default Initializer 를 제공함
@@ -53,8 +51,6 @@ struct User {
 
 var user = User()
 ```
-
-
 
 ## Class Inheritance and Initialization
 
@@ -76,7 +72,7 @@ class MyClass {
 // GOOD
 class MySecondClass {
     var name: String
-    
+
     init(name: String) {
         self.name = name
     }
@@ -93,12 +89,12 @@ class MySecondClass {
 class MyClass {
     var name: String
     var age: Int
-    
+
     init(name: String, age: Int) {
         self.name = name
         self.age = age
     }
-    
+
     // BAD: 'self' used before 'self.init' call or assignment to 'self'
     convenience init(name: String) {
         self.name = name
@@ -110,16 +106,18 @@ class MyClass {
 class MySecondClass {
     var name: String
     var age: Int
-    
+
     init(name: String, age: Int) {
         self.name = name
         self.age = age
     }
-    
+
     convenience init(name: String) {
         self.init(name: name, age: 20)
     }
 }
-
-
 ```
+
+## 출처
+
+[Initialization - The Swift Programming Language (Swift 5.7)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html)
