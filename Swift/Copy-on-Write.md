@@ -31,3 +31,11 @@ print(address: array2)
 // 0x1011232b0 (immutableArray Address)
 // 0x101123630 (값이 변경된 array2 Address)
 ```
+
+
+
+## 출처
+
+[iOS) [번역] Swift의 Copy-on-Write 메커니즘 – 유셩장](https://sihyungyou.github.io/iOS-copy-on-write/)
+
+[Understanding Swift Copy-on-Write mechanisms](https://medium.com/@lucianoalmeida1/understanding-swift-copy-on-write-mechanisms-52ac31d68f2f)
