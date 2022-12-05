@@ -62,7 +62,7 @@ var user = User()
 
 클래스의 primary Initializer
 
-클래스의 모든 프로퍼티가 초기화 해야 함
+클래스의 모든 프로퍼티가 초기화 해야 함
 
 클래스 타입은 반드시 한 개 이상의 Designated initializer 가 있어야 함
 
