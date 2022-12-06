@@ -6,7 +6,7 @@
 | [class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Class_Performance.md) | 12.05 |
 | [Copy On Write는 어떤 방식으로 동작하는지 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Copy-on-Write.md)   | 12.05 |
 | [init에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Initialization.md)                      | 12.05 |
-| AnyObject에 대해 설명하시오.                                                                                       |       |
+| [AnyObject에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/AnyObject.md)                     | 12.06 |
 | Optional 이란 무엇인지 설명하시오.                                                                                    |       |
 | Struct 가 무엇이고 어떻게 사용하는지 설명하시오.                                                                             |       |
 | Subscripts에 대해 설명하시오.                                                                                      |       |
