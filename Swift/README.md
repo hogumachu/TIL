@@ -12,7 +12,7 @@
 | [Subscripts에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Subscripts.md)                           | 12.06 |
 | [String은 왜 subscript로 접근이 안되는지 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/String_Subscripts.md)     | 12.06 |
 | [instance 메서드, class 메서드 그리고 static 메서드 차이점을 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Methods.md) | 12.06 |
-| Delegate 패턴을 활용하는 경우를 예를 들어 설명하시오.                                                                                |       |
+| [Delegate 패턴을 활용하는 경우를 예를 들어 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Delegate.md)                | 12.06 |
 | Singleton 패턴을 활용하는 경우를 예를 들어 설명하시오.                                                                               |       |
 | KVO 동작 방식에 대해 설명하시오.                                                                                              |       |
 | Delegates와 Notification 방식의 차이점에 대해 설명하시오.                                                                        |       |
