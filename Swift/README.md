@@ -8,7 +8,7 @@
 | [init에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Initialization.md)                      | 12.05 |
 | [AnyObject에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/AnyObject.md)                     | 12.06 |
 | [Optional 이란 무엇인지 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Optional.md)                    | 12.06 |
-| Struct 가 무엇이고 어떻게 사용하는지 설명하시오.                                                                             |       |
+| [Struct 가 무엇이고 어떻게 사용하는지 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Struct.md)               | 12.06 |
 | Subscripts에 대해 설명하시오.                                                                                      |       |
 | String은 왜 subscript로 접근이 안되는지 설명하시오.                                                                       |       |
 | instance 메서드와 class 메서드의 차이점을 설명하시오.                                                                       |       |
