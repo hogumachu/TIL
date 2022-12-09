@@ -73,7 +73,7 @@ extension Int {
     
 }
 
-let message (a.isValid().catchFailureJustReturn("Catch Error")
+let message = a.isValid().catchFailureJustReturn("Catch Error")
 print(message) // "Catch Error"
 ```
 
