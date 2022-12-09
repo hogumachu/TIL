@@ -26,8 +26,7 @@
 | Extension에 대해 설명하시오.                                                                                              |       |
 | Extension 내부에서 함수를 override할 수 있는지 설명하시오.                                                                         |       |
 | 접근 제어자의 종류엔 어떤게 있는지 설명하시오.                                                                                        |       |
-| defer란 무엇인지 설명하시오.                                                                                                |       |
-| defer가 호출되는 순서는 어떻게 되고, defer가 호출되지 않는 경우를 설명하시오.                                                                 |       |
+| [defer란 무엇인지 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Defer.md)                                   | 12.09 |
 | property wrapper에 대해서 설명하시오.                                                                                      |       |
 | [Generic에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Generic.md)                                 | 12.09 |
 | some 키워드에 대해 설명하시오.                                                                                               |       |
