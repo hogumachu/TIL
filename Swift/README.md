@@ -29,9 +29,9 @@
 | defer란 무엇인지 설명하시오.                                                                                                |       |
 | defer가 호출되는 순서는 어떻게 되고, defer가 호출되지 않는 경우를 설명하시오.                                                                 |       |
 | property wrapper에 대해서 설명하시오.                                                                                      |       |
-| [Generic에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Generic.md)                                | 12.09 |
+| [Generic에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Generic.md)                                 | 12.09 |
 | some 키워드에 대해 설명하시오.                                                                                               |       |
-| Result타입에 대해 설명하시오.                                                                                               |       |
+| [Result타입에 대해 설명하시오.](https://github.com/hogumachu/TIL/blob/main/Swift/Result.md)                                 | 12.09 |
 | Codable에 대하여 설명하시오.                                                                                               |       |
 | Closure에 대하여 설명하시오.                                                                                               |       |
 | Closure와 함수와의 관계에 대해 설명하시오.                                                                                       |       |
